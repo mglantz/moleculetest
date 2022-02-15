@@ -13,4 +13,4 @@
         line: enabled=0
     - name: "Include ftp"
       include_role:
-        name: "ftp"
+        name: "wget"
