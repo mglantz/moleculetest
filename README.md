@@ -28,7 +28,7 @@ dnf install -y podman ansible python3 python3-virtualenv gcc git
 
 # Conigure Jenkins
 * Go to https://hostname:8080, install recommended plugins (and sometimes you need to restart jenkins after that).
-* Add New Item, name-it-like-this or likethis not 'like this'. Type pipeline. And run.
+* Add New Item, name-it-like-this or likethis not 'like this'. Type pipeline.  Scroll down to pipeline script and paste in the content of this file: https://raw.githubusercontent.com/mglantz/moleculetest/main/Jenkinsfile And run.
 
 
 
