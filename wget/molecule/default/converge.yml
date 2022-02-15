@@ -6,6 +6,11 @@
     #ansible_become: yes
     ansible_ssh_pipelining: no
   tasks:
+    - name: Disable subscription manager in container
+      lineinfile:
+        path: /etc/dnf/plugins/subscription-manager.conf
+        regexp: '^enabled='
+        line: enabled=0
     - name: "Include ftp"
       include_role:
         name: "ftp"
