@@ -5,7 +5,7 @@ Molecule / Jenkins demo on Red Hat Enterprise Linux 8
 
 Install required software / repos and configure firewall
 ```
-# Setup repositories, we need Jenkins to get daemonize, a Jenkins dependency
+# Setup repositories, we need EPEL to get daemonize, a Jenkins dependency
 dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 wget http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo -O /etc/yum.repos.d/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
