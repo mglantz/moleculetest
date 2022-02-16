@@ -38,3 +38,10 @@ If you want to prep a worker to run on. Here's what you need to do to prep it.
 ```
 dnf install -y java-11-openjdk-devel podman python3 python3-virtualenv gcc git
 ```
+
+When you are done, setup credentials in Jenkins, add the node and change the agent section of the pipeline to:
+```
+  agent {
+    label 'Molecule_WorkerNode'
+  }
+```
