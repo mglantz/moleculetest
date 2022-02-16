@@ -11,7 +11,7 @@ wget http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo -O /etc/yum.repos.d/je
 sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
 
 # Install Jenks and dependencies
-dnf install -y java-11-openjdk-devel java-17-openjdk-devel jenkins
+dnf install -y java-11-openjdk-devel jenkins
 
 # Enable firewall opening
 firewall-cmd --permanent --add-port=8080/tcp
@@ -25,9 +25,16 @@ usermod --add-subgids 3000000-3200000 jenkins
 dnf install -y podman ansible python3 python3-virtualenv gcc git
 ```
 
-# Conigure Jenkins
+## Configure Jenkins
 * Go to https://hostname:8080, install recommended plugins (and sometimes you need to restart jenkins after that).
 * Add New Item, name-it-like-this or likethis not 'like this'. Type: Pipeline.  Scroll down to pipeline script and paste in the content of this file: https://raw.githubusercontent.com/mglantz/moleculetest/main/Jenkinsfile And run.
 * Done
 ![Complete pipeline](jenkins-molecule.png)
 
+## Installing a worker node
+So, running jobs on your main Jenkins node is bad in general due to security concerns.
+If you want to prep a worker to run on. Here's what you need to do to prep it.
+
+```
+dnf install -y java-11-openjdk-devel podman python3 python3-virtualenv gcc git
+```
