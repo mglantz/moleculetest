@@ -4,18 +4,7 @@
   hosts: all
   tasks:
     - name: Ensure that wget is installed
-      package:
-        name: wget
-        state: present
-      check_mode: yes
-      register: pkg
-
-    - name: Fail if package was not installed
-      assert:
-        that:
-          - pkg.changed is false
-        fail_msg: "Package wget was not installed!"
-        success_msg: "Package wget was installed."
+      command: wget --help
 
     - name: Test result
       debug: msg="wget was installed. Test OK"
